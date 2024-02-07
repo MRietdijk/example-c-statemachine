@@ -1,5 +1,6 @@
 #ifndef START_STATE_H__
 #define START_STATE_H__
+
 #include "State.h"
 
 extern State startState;

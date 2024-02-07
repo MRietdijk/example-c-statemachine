@@ -1,5 +1,6 @@
 #ifndef EXAMPLE_STATE_H__
 #define EXAMPLE_STATE_H__
+
 #include "State.h"
 
 extern State exampleState;
