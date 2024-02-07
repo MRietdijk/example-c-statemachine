@@ -5,11 +5,14 @@
 #include "eventQueue.h"
 
 State currentState;
-
+// clang-format off
 const State *eventLookupTable[][3] = {
-    /* EMPTY */ /* SYSTEM_BOOTED_UP */ /* SUBSYSTEM_INITIALIZED */
-    /* STARTSTATE */ {NULL, &InitSubSystemsState, NULL},
-    /* INITSUBSYSTEMSSTATE */ {NULL, NULL, &waitingForInputState}};
+                            /* EMPTY */         /* SYSTEM_BOOTED_UP */      /* SUBSYSTEM_INITIALIZED */
+  /* STARTSTATE */          {NULL,              &InitSubSystemsState,       NULL},
+  /* INITSUBSYSTEMSSTATE */ {NULL,              NULL,                       &waitingForInputState}
+};
+
+// clang-format on
 
 void runStatemachine() {
   // Set current state to first state in statemachine. And run entry function.
