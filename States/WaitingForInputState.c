@@ -2,7 +2,7 @@
 #include "../EventQueue.h"
 #include <stdio.h>
 
-State waitingForInputState = {.id = 2,
+State waitingForInputState = {.id = WAITING_FOR_INPUT_STATE_ID,
                               .entryFunc = waitingForInputStateEntry,
                               .doFunc = waitingForInputStateDo,
                               .exitFunc = waitingForInputStateExit};
