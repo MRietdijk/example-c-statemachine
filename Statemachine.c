@@ -7,7 +7,7 @@
 State currentState;
 // clang-format off
 const State *eventLookupTable[][3] = {
-                            /* EMPTY */         /* SYSTEM_BOOTED_UP */      /* SUBSYSTEM_INITIALIZED */
+  /* EVENTS: */             /* EMPTY */         /* SYSTEM_BOOTED_UP */      /* SUBSYSTEM_INITIALIZED */
   /* STARTSTATE */          {NULL,              &InitSubSystemsState,       NULL},
   /* INITSUBSYSTEMSSTATE */ {NULL,              NULL,                       &waitingForInputState}
 };
