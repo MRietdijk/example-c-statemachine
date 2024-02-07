@@ -47,6 +47,7 @@ void checkEvents() {
     return;
   }
 
+  // checks what the next state should be.
   const State *nextState = eventLookupTable[currentState.id][nextEvent];
 
   if (!nextState) {
