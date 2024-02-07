@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 // The event queue.
-Event eventQueue[MAX_EVENTS_IN_EVENT_QUEUE] = {EMPTY, EMPTY, EMPTY, EMPTY,
-                                               EMPTY};
+volatile Event eventQueue[MAX_EVENTS_IN_EVENT_QUEUE] = {EMPTY, EMPTY, EMPTY,
+                                                        EMPTY, EMPTY};
 
 // cppcheck-suppress unusedFunction
 bool isQueueFull() {
