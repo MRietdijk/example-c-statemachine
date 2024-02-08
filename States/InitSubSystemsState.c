@@ -2,7 +2,7 @@
 #include "../EventQueue.h"
 #include <stdio.h>
 
-State InitSubSystemsState = {.id = 1,
+State InitSubSystemsState = {.id = INIT_SUB_SYSTEMS_STATE_ID,
                              .entryFunc = &InitSubSystemsStateEntry,
                              .doFunc = &InitSubSystemsStateDo,
                              .exitFunc = &InitSubSystemsStateExit};

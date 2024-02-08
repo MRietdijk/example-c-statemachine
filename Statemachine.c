@@ -7,7 +7,7 @@
 State currentState;
 // clang-format off
 const State *eventLookupTable[][3] = {
-                            /* EMPTY */         /* SYSTEM_BOOTED_UP */      /* SUBSYSTEM_INITIALIZED */
+  /* EVENTS: */             /* EMPTY */         /* SYSTEM_BOOTED_UP */      /* SUBSYSTEM_INITIALIZED */
   /* STARTSTATE */          {NULL,              &InitSubSystemsState,       NULL},
   /* INITSUBSYSTEMSSTATE */ {NULL,              NULL,                       &waitingForInputState}
 };
@@ -47,6 +47,7 @@ void checkEvents() {
     return;
   }
 
+  // checks what the next state should be.
   const State *nextState = eventLookupTable[currentState.id][nextEvent];
 
   if (!nextState) {

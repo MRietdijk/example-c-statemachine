@@ -2,7 +2,7 @@
 #include "../EventQueue.h"
 #include <stdio.h>
 
-State startState = {.id = 0,
+State startState = {.id = START_STATE_ID,
                     .entryFunc = &startStateEntry,
                     .doFunc = &startStateDo,
                     .exitFunc = &startStateExit};

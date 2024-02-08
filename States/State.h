@@ -14,4 +14,14 @@ typedef struct {
   void (*exitFunc)();
 } State;
 
+/**
+ * @brief All state ids
+ * 
+ */
+typedef enum {
+  START_STATE_ID,
+  INIT_SUB_SYSTEMS_STATE_ID,
+  WAITING_FOR_INPUT_STATE_ID
+} StateId;
+
 #endif // STATE_H__
