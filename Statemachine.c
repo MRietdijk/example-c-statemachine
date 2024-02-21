@@ -1,4 +1,5 @@
 #include "Statemachine.h"
+#include "Logger.h"
 #include "States/InitSubSystemsState.h"
 #include "States/StartState.h"
 #include "States/WaitingForInputState.h"
@@ -15,9 +16,8 @@ const State *eventLookupTable[][3] = {
 // clang-format on
 
 void runStatemachine() {
-  // Set current state to first state in statemachine. And run entry function.
-  currentState = startState;
-  currentState.entryFunc();
+  // Set current state to first state in statemachine.
+  transitionToNextState(&startState);
 
   // The actual statemachine.
   while (true) {
@@ -26,16 +26,18 @@ void runStatemachine() {
   }
 }
 
-void transition(State nextState) {
+void transitionToNextState(const State *nextStatePtr) {
   // Checks if exit function exists.
   if (currentState.exitFunc) {
+    logInfo("Calling exitFunc()");
     currentState.exitFunc();
   }
 
-  currentState = nextState;
+  currentState = *nextStatePtr;
 
   // Checks if entry function exists.
   if (currentState.entryFunc) {
+    logInfo("Calling entryFunc()");
     currentState.entryFunc();
   }
 }
@@ -54,6 +56,6 @@ void checkEvents() {
     return;
   }
 
-  transition(*nextState);
+  transitionToNextState(nextState);
   popFront();
 }

@@ -20,7 +20,6 @@ bool isQueueFull() {
 }
 
 void popFront() {
-  eventQueue[0] = EMPTY;
 
   // place every item one place to the front.
   for (uint8_t i = 1; i < MAX_EVENTS_IN_EVENT_QUEUE; ++i) {
