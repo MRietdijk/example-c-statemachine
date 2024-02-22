@@ -21,7 +21,9 @@ typedef struct {
 typedef enum {
   START_STATE_ID,
   INIT_SUB_SYSTEMS_STATE_ID,
-  WAITING_FOR_INPUT_STATE_ID
+  GREETING_STATE_ID,
+  WAITING_FOR_INPUT_STATE_ID,
+  MUSIC_STATE_ID
 } StateId;
 
 char *stateIdToString(StateId id);

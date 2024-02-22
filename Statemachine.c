@@ -3,14 +3,19 @@
 #include "States/InitSubSystemsState.h"
 #include "States/StartState.h"
 #include "States/WaitingForInputState.h"
+#include "States/GreetingState.h"
+#include "States/MusicState.h"
 #include "eventQueue.h"
 
 State currentState;
 // clang-format off
-const State *eventLookupTable[][3] = {
-  /* EVENTS: */             /* EMPTY */         /* SYSTEM_BOOTED_UP */      /* SUBSYSTEM_INITIALIZED */
-  /* STARTSTATE */          {NULL,              &InitSubSystemsState,       NULL},
-  /* INITSUBSYSTEMSSTATE */ {NULL,              NULL,                       &waitingForInputState}
+const State *eventLookupTable[][5] = {
+  /* EVENTS: */             /* EMPTY */         /* SYSTEM_BOOTED_UP */      /* SUBSYSTEM_INITIALIZED */     /* GREETED */           /* LEFT_EAR_PRESSED */
+  /* STARTSTATE */          {NULL,              &InitSubSystemsState,       NULL,                           NULL,                   NULL},
+  /* INITSUBSYSTEMSSTATE */ {NULL,              NULL,                       &greetingState,                 NULL,                   NULL},
+  /* GREETINGSTATE */       {NULL,              NULL,                       NULL,                           &waitingForInputState,  NULL},
+  /* WAITINGFORINPUTSTATE */{NULL,              NULL,                       NULL,                           NULL,                   &musicState},
+  /* MUSICSTATE */          {NULL,              NULL,                       NULL,                           NULL,                   NULL}
 };
 
 // clang-format on

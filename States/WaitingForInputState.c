@@ -11,7 +11,7 @@ void waitingForInputStateEntry() { printf("Inside WaitingForInputEntry()\n"); }
 
 void waitingForInputStateDo() {
   printf("Inside WaitingForInputDo()\n");
-  addEvent(GREETED);
+  addEvent(LEFT_EAR_PRESSED);
 }
 
 void waitingForInputStateExit() { printf("Inside WaitingForInputExit()\n"); }

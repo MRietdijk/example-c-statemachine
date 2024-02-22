@@ -11,6 +11,12 @@ char *stateIdToString(StateId id) {
   case WAITING_FOR_INPUT_STATE_ID:
     return "WAITING_FOR_INPUT_STATE";
     break;
+  case GREETING_STATE_ID:
+    return "GEETING_STATE";
+    break;
+  case MUSIC_STATE_ID:
+    return "MUSIC_STATE";
+    break;
   default:
     return "Undefined";
     break;
